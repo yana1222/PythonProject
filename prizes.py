@@ -52,6 +52,7 @@ for row in rows:
         g.claimed = int(cells[5].text.strip().replace(',',''))
         g.available = int(cells[6].text.strip().replace(',',''))
         g.more = 'http://www.calottery.com'+str(cells[7].find('a')['href']) #explore this link for more information on all the prizes.
+        g.overall = {}
         all_lottodata.append(g)
         
         
@@ -82,5 +83,4 @@ for row in rows:
 for x in all_lottodata:#Just some code to test out the classes and loops. Will be removed before final version.
     print(x.name)
     print(x.overall)
-    for y in x.prizes:
-        print (y.amount)
+    #Note: The ticket "Super Ticket" does not have a summary line on their website sometimes so it might return an empty dict which should be ignored.
